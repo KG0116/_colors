@@ -1,0 +1,203 @@
+@import "colors";
+@import "compass/reset";
+
+//mixins
+@mixin prefixes($property, $value, $prefixes: ()){
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  #{$property}: $value;
+}
+//Base
+*, *:after, *:before{
+	box-sizing: border-box;
+}
+html, body{
+	height: 100%;
+}
+html{
+	background: $cod-gray;
+	font-family: Lato, sans-serif;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+//Blocks & Modifiers
+.page{
+	display: -webkit-flex;
+  	display: -ms-flexbox; 
+	display: flex;
+	@include prefixes(flex-direction, column, webkit ms);
+	height: 100%;
+	margin: 0 auto;
+	max-width: 1080px;
+}
+.section{
+	background: white;
+	border-radius: 3px;
+	@include prefixes(flex-basis, auto, webkit);
+	@include prefixes(flex-shrink, 0, webkit);
+	position: relative;
+}
+.section--color-list{
+	background-image: -webkit-linear-gradient($charade 45px, white 45px);
+	background-image: linear-gradient($charade 45px, white 45px);
+	min-height: 680px;
+	overflow-y: scroll;
+	padding-top: 50px;
+	width: 30%;
+}
+.section--about, .section--color-panel{
+	background-image: -webkit-linear-gradient($charade 40px, white 40px);
+	background-image: linear-gradient($charade 40px, white 40px);
+	min-height: 200px;
+	padding: 0 0.8em;
+	padding-top: 45px;
+}
+.heading{
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: 300;
+	left: 0;
+	padding: 0.4em;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.text{
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.4em;
+}
+.btn{
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  outline: 0;
+  padding: 10px 50px;
+  @include prefixes(transition, all 0.3s, webkit);
+}
+.btn--download{	
+  background-color: $cod-gray;
+  border: solid 1px $cardinal;
+  border-radius: 3px;
+  color: $cardinal;
+  &:hover{
+    background-color: $cardinal;
+    color: $cod-gray;
+  }
+}
+.btn--add{
+	background-color: $charade;
+	border: solid 1px $charade;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	margin-left: 5px;
+	&:hover{
+		background-color: lighten($charade, 5%);
+	}
+}
+.swatch{
+	display: inline-block;
+	height: 30px;
+	margin-right: 5px;
+	vertical-align: middle;
+	width: 30px;
+}
+.fa-times{
+	cursor: pointer;
+	position: absolute;
+    right: 10px;
+    top: 15px;
+    visibility: hidden;
+}
+.color-wheel{
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: top;
+}
+.color-input{
+	display: inline-block;
+}
+input[type='text']{
+	font-size: 18px;
+	padding: 10px 5px;
+	border-radius: 0;
+}
+.color-preview{
+	border: solid 1px $silver;
+	margin: 5px 0 5px 0;
+	min-height: 100px;
+}
+//Sub Blocks
+.page__header, .page__footer{
+	@include prefixes(flex-shrink, 0, webkit);
+}
+.page__header{
+	background-color: transparent;
+	font-size: 0.1px;
+	height: 90px;
+	line-height: 90px;
+	width: 100%;
+}
+.header__brand{
+	color: $cardinal;
+	display: inline-block;
+	font: 38px "Nova Mono", monospace;
+	width: 50%;
+	text-align: left;
+}
+.header__btn{
+	display: inline-block;
+	width: 50%;
+	text-align: right;
+}
+.page__main{
+	display: -webkit-flex;
+  	display: -ms-flexbox;
+	display: flex;
+	@include prefixes(flex, 1 0 auto, webkit ms);
+	justify-content: space-between;
+}
+.main__content{
+	background: transparent;
+	display: -webkit-flex;
+  	display: -ms-flexbox;
+	display: flex;
+	@include prefixes(flex-basis, auto, webkit);
+	@include prefixes(flex-direction, column, webkit);
+	@include prefixes(flex-shrink, 0, webkit);
+	justify-content: space-around;
+	width: 65%;
+}
+.color-list__ul{
+	font-family: monospace;
+	font-size: 16px;
+	max-height: 680px;
+	overflow-y: scroll;
+	width: 100%;
+}
+.color-list__li{
+	border-bottom: dashed 1px $dove-gray;
+	padding: 10px 10px;
+	position: relative;
+}
+.color-list__li:hover .fa-times{
+	visibility: visible;
+}
+.about__link{
+	color: $cardinal;
+}
+.page__footer{
+	color: white;
+	font-family: 'Lato', sans-serif;
+	padding: 0.7em;
+	text-align: center;
+}

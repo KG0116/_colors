@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title _Colors
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Nova+Mono', type='text/css')
+		link(rel="stylesheet", href="/javascripts/farbtastic/farbtastic.css", type="text/css")
+		link(rel="stylesheet", href="/stylesheets/font-awesome.min.css", type="text/css")
+		link(rel='stylesheet', href='/stylesheets/main.css', type='text/css')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900', type='text/css')
+	body(class="page")
+		header(class="page__header")
+			div(class="header__brand") _colors
+			div(class="header__btn")
+			div(class="header__link")
+		div(class="page__main")
+			section(class="section section--color-list")
+				h1(class="heading") Color List
+				div(class="color-list")
+			div(class="main__content")
+				section(class="section section--about")
+					h1(class="heading") About
+					p(class="text")
+						|_colors is a GUI for creating SCSS partial files in the style promoted on 
+						|#[a(href="https://davidwalsh.name/sass-color-variables-dont-suck" target="_blank" class="about__link") DWB].  
+						|Just select a color in the color panel below, add it to the color list, 
+						|and download the .scss file when you're done. You can add as many as 200 colors to a single file.
+				section(class="section section--color-panel")
+					h1(class="heading") Color Panel
+					div(class="color-wheel")
+					div(class="color-input")
+					a(href="/download?text=%0Apetite-orchid%3A%20%23DB9690%3B%0A", style="color:black;display:none", target="_self", class="my_file")
+		script(src="/javascripts/jquery/dist/jquery.js")
+		script(src="/javascripts/farbtastic/farbtastic.js")
+		script(src="/javascripts/ntc.js/ntc.js")
+		script(src="/javascripts/bundle.js")
+		footer(class="page__footer") &copy; 2016 _colors

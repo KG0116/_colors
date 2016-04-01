@@ -1,0 +1,10 @@
+{
+  "name": "_Colors",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "~2.1.4",
+    "slug": "^0.9.1",
+    "font-awesome": "fontawesome#^4.5.0"
+  }
+}
